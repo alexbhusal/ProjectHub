@@ -9,6 +9,7 @@ export const FRONTEND_TECHS = [
 ];
 
 export const BACKEND_TECHS = [
+  { name: "No Backend", time: 5 },
   { name: "Node.js", time: 15 },
   { name: "Django", time: 14 },
   { name: "Laravel", time: 15 },
@@ -26,13 +27,15 @@ export const DATABASES = [
   { name: "MongoDB", time: 12 },
   { name: "PostgreSQL", time: 11 },
   { name: "OracleDB", time: 15 },
+  { name: "FireBase", time: 13 },
   { name: "SQLite", time: 8 },
   { name: "MariaDB", time: 9 },
   { name: "Redis", time: 7 },
-  { name: "FireBase", time: 7 },
+  { name: "No DataBase", time: 2 },
 ];
 
 export const ALGORITHMS = [
+  { name: "No ALGORITHMS", time: 2 },
   { name: "K-Nearest Neighbors (KNN)", time: 20 },
   { name: "Convolutional Neural Network (CNN)", time: 50 },
   { name: "Support Vector Machine (SVM)", time: 30 },
