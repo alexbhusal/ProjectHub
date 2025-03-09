@@ -1,0 +1,98 @@
+"use client";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { auth } from "../../utils/FireBase";
+import {  sendSignInLinkToEmail } from "firebase/auth";
+import { ToastContainer ,toast } from "react-toastify";
+import { Loadings } from "@/Components/Loadings";
+import { EmailImg } from "@/Components/EmailImg";
+
+
+
+const page = () => {
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [loading,setLoading]=useState(true);
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setLoading(false);
+    },2000)
+  },[])
+
+  const handleSubmit = async (e:any) => {
+    e.preventDefault();
+
+    if (!email) {
+      setError("Please enter your email address.");
+      return;
+    }
+
+    try {
+      await sendSignInLinkToEmail(auth, email, {
+        url: "https://projecthub.vercel.app/form",
+        // url: "http://localhost:3000/form",
+        handleCodeInApp: true,
+      });
+      window.localStorage.setItem('emailForSignIn', email);
+      toast("We have sent you an email with a link to sign in");
+      setError("");
+      setEmail("");
+    } catch (err:any) {
+      setError(err.message);
+      setSuccessMessage("");
+    }
+  };
+  return (
+    <>
+    {loading? 
+    <div className="flex justify-center items-center h-screen">
+    <Loadings/>
+    </div>
+    :<>
+      <>
+    <ToastContainer/>
+      <h1 className="text-3xl text-center md:text-5xl m-10 font-bold">Student Login</h1>
+      <div className="flex flex-col md:flex-row">
+        <div className="h-full w-full md:w-4/5 ">
+          <EmailImg />
+        </div>
+        <div className="border-l-4 border-black"></div>
+        <div className="w-full md:w-2/5">
+          <div className="flex justify-center items-center m-5 md:mt-20">
+            <form onSubmit={handleSubmit}>
+              <div>
+                <input
+                  type="email"
+                  id="email"
+                  className=" focus:outline-none focus:ring-2 focus:ring-black w-72 border-2 border-black p-3 rounded-full"
+                  placeholder="Enter Your Email Adderess"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              {error && <p style={{ color: "red" }}>{error}</p>}
+              {successMessage && (
+                <p style={{ color: "green" }}>{successMessage}</p>
+              )}
+              <div className="">
+                <button
+                  type="submit"
+                  className="font-bold bg-black text-white px-3 py-2 my-4 mx-28 rounded-3xl"
+                >
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
+    </>}
+    </>
+  );
+};
+
+export default page;
