@@ -11,7 +11,7 @@ const ConIcon = () => {
               href="https://wa.me/+447867914452?text=Hello%Are%You%Free"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl md:text-7xl text-green-500"
+              className="text-5xl md:text-7xl text-green-500"
             >
               <FaWhatsapp />
             </a>
