@@ -2,12 +2,10 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { auth } from "../../utils/FireBase";
-import {  sendSignInLinkToEmail } from "firebase/auth";
+import { sendSignInLinkToEmail } from "firebase/auth";
 import { ToastContainer ,toast } from "react-toastify";
 import { Loadings } from "@/Components/Loadings";
 import { EmailImg } from "@/Components/EmailImg";
-
-
 
 const page = () => {
   const [email, setEmail] = useState("");
@@ -31,7 +29,7 @@ const page = () => {
 
     try {
       await sendSignInLinkToEmail(auth, email, {
-        url: "https://projecthub.vercel.app/form",
+        url: "https://projecthire.vercel.app/form",
         // url: "http://localhost:3000/form",
         handleCodeInApp: true,
       });
@@ -58,7 +56,7 @@ const page = () => {
         <div className="h-full w-full md:w-4/5 ">
           <EmailImg />
         </div>
-        <div className="border-l-4 border-black"></div>
+        <div className="border-l-4 border-purple-500"></div>
         <div className="w-full md:w-2/5">
           <div className="flex justify-center items-center m-5 md:mt-20">
             <form onSubmit={handleSubmit}>
@@ -66,7 +64,7 @@ const page = () => {
                 <input
                   type="email"
                   id="email"
-                  className=" focus:outline-none focus:ring-2 focus:ring-black w-72 border-2 border-black p-3 rounded-full"
+                  className=" focus:outline-none focus:ring-2 focus:ring-purple-500 w-72 border-2 border-purple-500 p-3 rounded-full"
                   placeholder="Enter Your Email Adderess"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -80,7 +78,7 @@ const page = () => {
               <div className="">
                 <button
                   type="submit"
-                  className="font-bold bg-black text-white px-3 py-2 my-4 mx-28 rounded-3xl"
+                  className="font-bold bg-purple-900 text-white px-3 py-2 my-4 mx-28 rounded-3xl"
                 >
                   Login
                 </button>
