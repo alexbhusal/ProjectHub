@@ -53,9 +53,9 @@ interface Tech {
           <Loads />
         </div>
       ) : (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center py-2 md:py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-lg">
-            <h1 className="text-3xl font-bold text-center text-gray-900">
+            <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-900">
               Project Cost Estimator
             </h1>
             <form className="space-y-4" method="post" onSubmit={handleSubmit}>
