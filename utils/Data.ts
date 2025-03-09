@@ -23,6 +23,7 @@ export const BACKEND_TECHS = [
 ];
 
 export const DATABASES = [
+  { name: "No DataBase", time: 2 },
   { name: "MySQL", time: 10 },
   { name: "MongoDB", time: 12 },
   { name: "PostgreSQL", time: 11 },
@@ -31,7 +32,6 @@ export const DATABASES = [
   { name: "SQLite", time: 8 },
   { name: "MariaDB", time: 9 },
   { name: "Redis", time: 7 },
-  { name: "No DataBase", time: 2 },
 ];
 
 export const ALGORITHMS = [
