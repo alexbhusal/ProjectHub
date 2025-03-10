@@ -8,7 +8,7 @@ const ConIcon = () => {
        <div className="flex justify-center items-center space-x-8 mt-16">
             {/* Social media and contact icons */}
             <a
-              href="https://wa.me/+447867914452?text=Hello%Are%You%Free"
+              href="https://wa.me/+447867914452?text=Hello%20Are%20You%20Free"
               target="_blank"
               rel="noopener noreferrer"
               className="text-5xl md:text-7xl text-green-500"
